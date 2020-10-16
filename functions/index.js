@@ -5,12 +5,12 @@ const { ref } = require('firebase-functions/lib/providers/database')
 
 const app = express()
 
+const databaseURL = JSON.parse(process.env.FIREBASE_CONFIG).databaseURL
+
 admin.initializeApp({
   credential: admin.credential.applicationDefault(),
-  databaseURL: 'https://bug-tracker-acb50.firebaseio.com/',
+  databaseURL: databaseURL,
 })
-
-admin.database().ref('test').child('test').set({ test: 'test' })
 
 app.get('/hello', (req, res) => res.send('hell o world'))
 
