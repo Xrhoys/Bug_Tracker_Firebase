@@ -14,6 +14,7 @@ module.exports = {
     }
 
     // Error handled by wrapAsync in routing
+    // TODO: check if email verification is sent
     const snapshot = await auth.createUser(user)
 
     // Success response
