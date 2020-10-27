@@ -3,8 +3,9 @@
  */
 const router = require('express').Router()
 const wrapAsync = require('./../middleware/wrapAsync')
-const { createIssue } = require('./../controller').Issues
+const { createIssue, getIssueByID } = require('./../controller').Issues
 
-router.post('/', wrapAsync(create))
+router.get('/', wrapAsync(getIssueByID))
+router.post('/', wrapAsync(createIssue))
 
 module.exports = router
